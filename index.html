@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="firstApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, 
+                   user-scalable=no, width=device-width">
+    <link href="http://code.ionicframework.com/1.0.0/css/ionic.min.css" rel="stylesheet">
+    <script src="http://code.ionicframework.com/1.0.0/js/ionic.bundle.js"></script>
+    <!-- include the javascript app.js source file -->
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="FirstController">
+    <!-- add some ionic style with header -->
+    <ion-header-bar class="bar-assertive">
+        <h1 class="title">Howard University's Chapter, The Xi of Kappa Alpha Psi Fraternity, Inc.</h1>
+    </ion-header-bar>
+    <!-- ionic content area -->
+    <ion-content class="padding">
+        <ion-list>
+            <!-- add a section header -->
+            <ion-item class="item-divider">List of Objects</ion-item>
+            <!-- iterate thru each item in the list, use $index as item identifier -->
+            <ion-item ng-repeat="item in itemsList track by $index">
+                {{$index}} - {{item.Xi}} - {{item.Kappa}}
+                <!-- <p>Item = {{item | json}} $index= {{$index}}</p> -->
+            </ion-item>
+            <ion-item class="item-divider">Actions</ion-item>
+        </ion-list>
+        <ion-item>
+            <Button class="button" ng-click="getOneItemBtnClicked()">
+                View Xi Brother
+            </Button>&nbsp;
+            <Button class="button" ng-click="getAllItemsBtnClicked()">
+                Reset List
+            </Button>
+        </ion-item>
+    </ion-content>
+</body>
+</html>
